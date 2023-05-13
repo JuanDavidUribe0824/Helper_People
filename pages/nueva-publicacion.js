@@ -1,11 +1,13 @@
 import React from 'react';
 import Layout from '../components/layout/Layout.js';
-const Home = () => (
+
+const NuevaPublicación = () => (
     <div>
       <Layout>
-      <h1>Inicio</h1>
+      <h1>Nueva Publicación</h1>
       </Layout>
     </div>
   )
 
-export default  Home;
+
+export default  NuevaPublicación;
