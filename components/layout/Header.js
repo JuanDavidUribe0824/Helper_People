@@ -79,11 +79,11 @@ const Header = () => {
                             margin-right: 2rem;
                         `}
 
-                            >Hola = {usuario.displayName} </p>
+                            >Hola {usuario.displayName} </p>
                             <Boton
                                 bgColor="true"
-                                onClick={() => firebase.cerrarSesion() }>
-                                Cerrar Sesión
+                                onClick={() => firebase.cerrarSesion() }
+                                >Cerrar Sesión
                             </Boton>
                         </>
                     ) : (
