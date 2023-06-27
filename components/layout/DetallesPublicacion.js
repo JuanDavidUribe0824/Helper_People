@@ -38,16 +38,19 @@ const Comentarios = styled.div`
     margin-top: 2rem;
     display: flex;
     align-items: center;
+    
     div {
         display: flex;
         align-items: center;
         border: 1px solid #e1e1e1;
         padding: .3rem 1rem;
         margin-right: 2rem;
+        border-radius: 30px;
     }
     img {
-        width: 2rem;
-        margin-right: 2rem;
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
     }
     p {
         font-size: 1.6rem;
@@ -60,7 +63,8 @@ const Comentarios = styled.div`
 `;
 
 const Imagen = styled.img`
-    width: 200px; 
+max-width: 300px;
+  height: auto;
 `;
 
 const Votos = styled.div`
@@ -98,7 +102,7 @@ const DetallesPublicacion = ({ publicacion }) => {
 
                     <Comentarios>
                         <div>
-                            <img src="/static/img/comentario.jpg" />
+                            <img src="/static/img/comentario.png" />
                             <p>{comentarios.length} Comentarios</p>
                         </div>
                     </Comentarios>

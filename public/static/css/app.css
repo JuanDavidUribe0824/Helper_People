@@ -1,3 +1,23 @@
+/*Inicio Chat estilos Globales*/
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+/*Fin Chat estilos Globales*/
+
 .listado-productos {
     background-color: #f3f3f3;
 }
@@ -12,7 +32,7 @@
 }
 
 :root {
-    --primary: #1f3e72;
+    --primary: #21D4FD;
     --secondary: rgba(255, 255, 255, 0.78);
     --black: #131110;
     --blue-gradient: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
@@ -83,7 +103,7 @@
   }
   
   .primaryText {
-    color: #1f3e72;
+    color: #2949c6;
     font-weight: bold;
     font-size: 2rem;
   }

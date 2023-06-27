@@ -61,15 +61,15 @@ const NuevaPublicación = () => {
       nombre,
       empresa,
       url,
-       urlimagen,
-        descripcion,
-        votos: 0,
-        comentarios: [],
-        creado: Date.now(),
-        creador: {
-          id: usuario.uid,
-          nombre: usuario.displayName
-        },
+      urlimagen,
+      descripcion,
+      votos: 0,
+      comentarios: [],
+      creado: Date.now(),
+      creador: {
+        id: usuario.uid,
+        nombre: usuario.displayName
+      },
         haVotado: []
     }
 

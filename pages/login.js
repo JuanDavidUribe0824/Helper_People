@@ -28,8 +28,11 @@ const Login = () => {
       await firebase.login(email, password);
       Router.push('/');
     } catch (error) {
-      console.error('Hubo un error al autenticar el usuario ', error.message);
-      guardarError(error.message);
+      if (error.code === "auth/wrong-password") {
+        guardarError("Por favor, verifica tus credenciales.");
+      } else {
+        guardarError("Se ha producido un error durante el proceso de autenticación: " + error.message);
+      }
     }
     
   }

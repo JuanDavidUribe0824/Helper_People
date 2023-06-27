@@ -10,21 +10,20 @@ const InputText = styled.input`
 `;
 
 const InputSumit = styled.button`
-  height: 3rem;
-  width: 3rem;
+  height: 35px;
+  width: 32px;
   display: block;
   background-size: 4rem;
-  background-image: url('static/img/buscar.png');
+  background-image: url('/static/img/4478006.png');
   background-repeat: no-repeat;
   position: absolute;
   right: 1rem;
-  top: 1px;
+  top: 2px;
   background-color: white;
   border: none;
   text-indent: -9999px;
-
   &:hover {
-    cursor: pointer;
+      cursor: pointer;
   }
   `;
 

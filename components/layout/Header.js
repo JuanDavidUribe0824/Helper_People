@@ -5,21 +5,21 @@ import { css } from '@emotion/react';
 import Buscar from '../ui/Buscar.js';
 import Navegacion from './Navegacion.js';
 import Boton from '../ui/Boton.js';
-import { FirebaseContext} from '../../firebase';
+import { FirebaseContext } from '../../firebase';
 
 const ContenedorHeader = styled.div`
     max-width: 1200px;
     width: 95%;
     margin: 0 auto;
-    @media (min-width: 768px) {
+    @media (min-width:768px) {
         display: flex;
         justify-content: space-between;
     }
-`
+    `;
 
 const Logo = styled.p`
-    color: var(--azul);
-    font-size: 4rem;
+    color: #2949c6;
+    font-size: 2.5rem;
     line-height: 0;
     font-weight: 700;
     font-family: 'Roboto Slab', serif;
@@ -29,7 +29,7 @@ const Logo = styled.p`
 
 const Header = () => {
 
-    const { usuario , firebase } = useContext(FirebaseContext);
+    const { usuario, firebase } = useContext(FirebaseContext);
 
     return (
         <header
@@ -43,17 +43,17 @@ const Header = () => {
 
             <ContenedorHeader>
                 <div
-                css={css`
-                display: flex;
-                align-items: center;
+                    css={css`
+                        display: flex;
+                        align-items: center;
                 `}
-    
-                
-                
+
+
+
                 >
 
                     <Link href='/'>
-                        <Logo>Hp</Logo>
+                        <Logo>Helper People</Logo>
                     </Link>
 
                     {/*Buscador*/}
@@ -76,19 +76,19 @@ const Header = () => {
                         <>
                             <p
                                 css={css`
-                            margin-right: 2rem;
+                                    margin-right: 2rem;
                         `}
 
                             >Hola {usuario.displayName} </p>
                             <Boton
                                 bgColor="true"
-                                onClick={() => firebase.cerrarSesion() }
-                                >Cerrar Sesión
+                                onClick={() => firebase.cerrarSesion()}
+                            >Cerrar Sesión
                             </Boton>
                         </>
                     ) : (
                         <>
-                            <Link legacyBehavior  href="/login">
+                            <Link legacyBehavior href="/login">
                                 <Boton bgColor="true">
                                     Login
                                 </Boton>

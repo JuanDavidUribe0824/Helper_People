@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useRouter } from "next/router";
+import Link from 'next/link';
 
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { es } from 'date-fns/locale';
@@ -258,6 +259,16 @@ const Publicacion = () => {
                                     href={url}
                                 >Visitar URL</Boton>
 
+                                
+
+                                {usuario && (
+                                    <Link legacyBehavior href="/homeChat">
+                                        <Boton
+                                            bgColor="true"
+                                        >Chat</Boton>
+                                    </Link>
+                                    )}
+
                                 <div
                                     css={css` 
                                     margin-top: 5rem;
@@ -275,6 +286,7 @@ const Publicacion = () => {
                                         </Boton>
                                     )}
                                 </div>
+
                             </aside>
                         </ContenedorPublicacion>
 

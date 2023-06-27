@@ -38,6 +38,7 @@ export const InputSubmit = styled.input`
    width: 100%;
    padding: 1.5rem;
    text-align: center;
+   border-radius: 30px;
    color: #FFF;
    font-size: 1.8rem;
    text-transform: uppercase;
@@ -52,7 +53,7 @@ export const InputSubmit = styled.input`
 `;
 
 export const Error = styled.p`
-background-color: red;
+background-color: #4066ff;
 padding: 1rem;
 font-family: 'PT Sans', sans-serif;
 font-weight: 700;

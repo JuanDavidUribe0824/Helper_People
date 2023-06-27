@@ -62,6 +62,7 @@ const Layout = (props) => {
 
           img{
             max-width: 100%;
+            border-radius: 20px;
           }
         `}
       />
@@ -77,7 +78,7 @@ const Layout = (props) => {
         />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&family=Roboto:ital,wght@0,700;1,300&display=swap"
           rel="stylesheet"
