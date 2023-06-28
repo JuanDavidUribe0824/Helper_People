@@ -33,6 +33,8 @@ class Firebase {
       email,
       password
     );
+    // Se referencian los usuariois en otra colección para mayor facilidad en su tratamiento
+    addDoc(collection(firebase.db, "users"), { ...nuevoUsuario.user });
     // Se registra en la colección de admins dado el parámetro isAdmin
     if (isAdmin) addDoc(this.__adminsRef, { uid: nuevoUsuario.user.uid });
     return await updateProfile(nuevoUsuario.user, {

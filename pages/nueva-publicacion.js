@@ -67,6 +67,7 @@ const NuevaPublicación = () => {
       creador: {
         id: usuario.uid,
         nombre: usuario.displayName,
+        email: usuario.email,
       },
       haVotado: [],
     };

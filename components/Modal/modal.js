@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
 import styles from "./modal.module.css";
-import Boton from "../ui/Boton";
 import { FirebaseContext } from "../../firebase";
 import {
   collection,
   addDoc,
   query,
-  deleteDoc,
   doc,
   getDocs,
   where,
