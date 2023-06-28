@@ -8,6 +8,7 @@ import {
   InputSubmit,
   Error,
 } from "../components/ui/Formulario.js";
+import Header from '../components/layout/Header.js';
 
 import firebase from "../firebase";
 
@@ -46,6 +47,7 @@ const Login = () => {
 
   return (
     <div>
+      <Header />
       <Layout>
         <>
           <h1

@@ -29,7 +29,7 @@ const Logo = styled.p`
 
 const Header = () => {
 
-    const { usuario, firebase } = useContext(FirebaseContext);
+    const { usuario, firebase, } = useContext(FirebaseContext);
 
     return (
         <header
@@ -74,12 +74,17 @@ const Header = () => {
                 >
                     {usuario ? (
                         <>
-                            <p
-                                css={css`
-                                    margin-right: 2rem;
-                        `}
-
-                            >Hola {usuario.displayName} </p>
+                            {
+                                usuario && usuario.isAdmin ? (
+                                    <Link href='/dashboard' css={css`margin-right: 2rem;`}>
+                                        Hola {usuario.displayName}
+                                    </Link>
+                                ) : (
+                                    <p css={css`margin-right: 2rem;`}>
+                                        Hola {usuario.displayName}
+                                    </p>
+                                )
+                            }
                             <Boton
                                 bgColor="true"
                                 onClick={() => firebase.cerrarSesion()}

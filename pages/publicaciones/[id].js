@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { getStorage, ref, deleteObject } from "firebase/storage";
 import Layout from "../../components/layout/Layout.js";
+import Header from '../../components/layout/Header.js';
 import { FirebaseContext } from "../../firebase";
 import Error404 from "../../components/layout/404.js";
 import { css } from "@emotion/react";
@@ -200,146 +201,149 @@ const Publicacion = () => {
     }
   };
   return (
-    <Layout>
-      <>
-        {error ? (
-          <Error404 />
-        ) : (
-          <div className="contenedor">
-            <h1
-              css={css`
+    <>
+      <Header />
+      <Layout>
+        <>
+          {error ? (
+            <Error404 />
+          ) : (
+            <div className="contenedor">
+              <h1
+                css={css`
                 text-align: center;
                 margin-top: 5rem;
               `}
-            >
-              {" "}
-              {nombre}{" "}
-            </h1>
+              >
+                {" "}
+                {nombre}{" "}
+              </h1>
 
-            <ContenedorPublicacion>
-              <div>
-                <p>
-                  Publicado hace{" "}
-                  {formatDistanceToNow(new Date(creado), { locale: es })}
-                </p>
-                <p>
-                  Por {creador.nombre} ° Servicio de {empresa}
-                </p>
-                <img src={urlimagen} />
-                <p>{descripcion}</p>
+              <ContenedorPublicacion>
+                <div>
+                  <p>
+                    Publicado hace{" "}
+                    {formatDistanceToNow(new Date(creado), { locale: es })}
+                  </p>
+                  <p>
+                    Por {creador.nombre} ° Servicio de {empresa}
+                  </p>
+                  <img src={urlimagen} />
+                  <p>{descripcion}</p>
 
-                {usuario && (
-                  <>
-                    <h2>Agrega tu comentario</h2>
-                    <form onSubmit={agregarComentario}>
-                      <Campo>
-                        <input
-                          type="text"
-                          name="mensaje"
-                          onChange={comentarioChange}
-                        />
-                      </Campo>
-                      <InputSubmit type="submit" value="Agregar Comentario" />
-                    </form>
-                  </>
-                )}
+                  {usuario && (
+                    <>
+                      <h2>Agrega tu comentario</h2>
+                      <form onSubmit={agregarComentario}>
+                        <Campo>
+                          <input
+                            type="text"
+                            name="mensaje"
+                            onChange={comentarioChange}
+                          />
+                        </Campo>
+                        <InputSubmit type="submit" value="Agregar Comentario" />
+                      </form>
+                    </>
+                  )}
 
-                <h2
-                  css={css`
+                  <h2
+                    css={css`
                     margin: 2rem 0;
                   `}
-                >
-                  Comentarios
-                </h2>
+                  >
+                    Comentarios
+                  </h2>
 
-                {comentarios.length === 0 ? (
-                  "Aún no hay Comentarios"
-                ) : (
-                  <ul>
-                    {comentarios.map((comentario, i) => (
-                      <li
-                        key={`${comentario.usuarioId}-${i}`}
-                        css={css`
+                  {comentarios.length === 0 ? (
+                    "Aún no hay Comentarios"
+                  ) : (
+                    <ul>
+                      {comentarios.map((comentario, i) => (
+                        <li
+                          key={`${comentario.usuarioId}-${i}`}
+                          css={css`
                           border: 1px solid #e1e1e1;
                           padding: 2rem;
                         `}
-                      >
-                        <p>{comentario.mensaje}</p>
-                        <p>
-                          Escrito por:
-                          <span
-                            css={css`
+                        >
+                          <p>{comentario.mensaje}</p>
+                          <p>
+                            Escrito por:
+                            <span
+                              css={css`
                               font-weight: bold;
                             `}
-                          >
-                            {""} {comentario.usuarioNombre}
-                          </span>
-                        </p>
-                        {esCreador(comentario.usuarioId) && (
-                          <CreadorPublicacion>Es Creador</CreadorPublicacion>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-
-              <aside>
-                <Boton target="_blank" bgColor="true" href={url}>
-                  Visitar URL
-                </Boton>
-
-                {usuario && (
-                  <Link legacyBehavior href="/homeChat">
-                    <Boton bgColor="true">Chat</Boton>
-                  </Link>
-                )}
-
-                <div
-                  css={css`
-                    margin-top: 5rem;
-                  `}
-                >
-                  <p
-                    css={css`
-                      text-align: center;
-                    `}
-                  >
-                    {votos} Votos
-                  </p>
-
-                  {usuario && <Boton onClick={votarPublicacion}>Votar</Boton>}
-                  {usuario && !usuario.isAdmin && !esCreador(usuario.uid) && (
-                    <Boton
-                      bgColor="red"
-                      onClick={() => setShowReportModal(true)}
-                    >
-                      Reportar
-                    </Boton>
-                  )}
-                  {usuario && usuario.isAdmin && (
-                    <Boton bgColor="red" onClick={() => eliminarPublicacion()}>
-                      Eliminar Publicación
-                    </Boton>
+                            >
+                              {""} {comentario.usuarioNombre}
+                            </span>
+                          </p>
+                          {esCreador(comentario.usuarioId) && (
+                            <CreadorPublicacion>Es Creador</CreadorPublicacion>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </div>
-              </aside>
-            </ContenedorPublicacion>
 
-            {puedeBorrar() && (
-              <Boton onClick={eliminarPublicacion()}>
-                Eliminar Publicación
-              </Boton>
-            )}
-          </div>
-        )}
-        <Modal
-          isVisible={showReportModal}
-          onClose={() => setShowReportModal(false)}
-          publicationId={id}
-        />
-      </>
-    </Layout>
+                <aside>
+                  <Boton target="_blank" bgColor="true" href={url}>
+                    Visitar URL
+                  </Boton>
+
+                  {usuario && (
+                    <Link legacyBehavior href="/homeChat">
+                      <Boton bgColor="true">Chat</Boton>
+                    </Link>
+                  )}
+
+                  <div
+                    css={css`
+                    margin-top: 5rem;
+                  `}
+                  >
+                    <p
+                      css={css`
+                      text-align: center;
+                    `}
+                    >
+                      {votos} Votos
+                    </p>
+
+                    {usuario && <Boton onClick={votarPublicacion}>Votar</Boton>}
+                    {usuario && !usuario.isAdmin && !esCreador(usuario.uid) && (
+                      <Boton
+                        bgColor="red"
+                        onClick={() => setShowReportModal(true)}
+                      >
+                        Reportar
+                      </Boton>
+                    )}
+                    {usuario && usuario.isAdmin && (
+                      <Boton bgColor="red" onClick={() => eliminarPublicacion()}>
+                        Eliminar Publicación
+                      </Boton>
+                    )}
+                  </div>
+                </aside>
+              </ContenedorPublicacion>
+
+              {puedeBorrar() && (
+                <Boton onClick={eliminarPublicacion()}>
+                  Eliminar Publicación
+                </Boton>
+              )}
+            </div>
+          )}
+          <Modal
+            isVisible={showReportModal}
+            onClose={() => setShowReportModal(false)}
+            publicationId={id}
+          />
+        </>
+      </Layout>
+    </>
   );
 };
 

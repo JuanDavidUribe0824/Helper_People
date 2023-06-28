@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Layout from '../components/layout/Layout.js';
 import Footer from '../components/Footer/Footer.js';
+import Header from '../components/layout/Header.js';
 import { useRouter } from 'next/router.js';
 import DetallesPublicacion from '../components/layout/DetallesPublicacion.js'
 import usePublicaciones from '../hooks/usePublicaciones.js';
@@ -30,6 +31,7 @@ const Buscar = () => {
 
   return (
     <div>
+      <Header />
       <Layout>
       <div className='listado-publicaciones'>
         <div className='contenedor'>

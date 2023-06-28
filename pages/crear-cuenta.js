@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import Router from 'next/router';
 import Layout from '../components/layout/Layout.js';
 import { Formulario, Campo, InputSubmit, Error } from '../components/ui/Formulario.js';
+import Header from '../components/layout/Header.js';
 
 import firebase from '../firebase';
 
@@ -37,6 +38,7 @@ const CrearCuenta = () => {
   
     return (
       <div>
+        <Header />
         <Layout>
           <>
             <h1

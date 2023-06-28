@@ -27,7 +27,7 @@ const DashboardSidebar = () => {
               Inicio
             </span>
           </Link>
-          <Link href='/reports' className={styles['sidebar__wrapper__content__link']}>
+          <Link href='/dashboard' className={styles['sidebar__wrapper__content__link']}>
             <i className={`bx bxs-report ${styles['sidebar__wrapper__content__link--icon']}`}></i>
             <span className={styles['sidebar__wrapper__content__link--label']}>
               Reportes
@@ -51,11 +51,14 @@ const DashboardSidebar = () => {
               </span>
               {
                 usuario ? (
-                <button className={styles['sidebar__wrapper__footer__profile--actions__logout']}>
+                <button 
+                  className={styles['sidebar__wrapper__footer__profile--actions__logout']}
+                  onClick={() => firebase.cerrarSesion()}
+                >
                   Cerrar sesi&oacute;n
                 </button>
                 ) : (
-                  <></>
+                  <div></div>
                 )
               }
             </div>

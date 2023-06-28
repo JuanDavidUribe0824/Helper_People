@@ -11,6 +11,7 @@ import {
 
 import { FirebaseContext } from "../firebase";
 import Error404 from "../components/layout/404";
+import Header from '../components/layout/Header.js';
 
 import { collection, addDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
@@ -115,6 +116,7 @@ const NuevaPublicación = () => {
 
   return (
     <div>
+      <Header />
       <Layout>
         {!usuario ? (
           <Error404 />

@@ -5,6 +5,7 @@
   border-radius: 0 15px 8px 0;
   background-color: var(--lightBlue);
   position: fixed;
+  top: 0;
   left: 0;
 }
 

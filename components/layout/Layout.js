@@ -89,7 +89,7 @@ const Layout = (props) => {
 
       </Head>
 
-      <Header />
+      {/* <Header /> */}
 
       <main>{props.children}</main>
     </>
