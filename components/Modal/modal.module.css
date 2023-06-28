@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    --bg-opacity: 0.25;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color: rgb(244, 244, 244);
+    border-radius: 10px;
+}
+
+.button {
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    font-size: 2.4rem;
+    line-height: 3.9rem;
+}
+
+.close {
+    background-color: transparent;
+    position: absolute;
+    color: red;
+    padding: 0.5rem 1rem;
+    place-self: end;
+}
+
+.close:focus,
+.reason:focus {
+    outline: 0;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+    max-width: 85%;
+}
+
+.reason {
+    margin-top: 3rem;
+    resize: none;
+    font-size: large;
+    width: 70%;
+    padding: 4px;
+    text-align: justify;
+    border-radius: 5px;
+}
+
+.send-report {
+    background-color: #2949c6;
+    margin: 2rem 0;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+}
+
+.send-report:hover {
+    background-color: #0022A4;
+}
+
+.send-report:disabled {
+    background-color: #a8b8f7;
+    cursor: auto;
+}
+
+.anonymus-label {
+    font-size: 2rem;
+    user-select: none;
+}
