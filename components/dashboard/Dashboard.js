@@ -63,7 +63,7 @@ const Dashboard = () => {
                 <article className={styles['dashboard__container__list--item']}>
                   <div className={styles['dashboard__container__list--item__body']}>
                     <div className={styles['dashboard__container__list--item__body__image']}>
-                      <img src={!publicaciones.find(p => p.id === report.publicationId)?.urlimagen ? 'static/img/no-img.png' : publicaciones.find(p => p.id === report.publicationId)?.urlimagen} alt={publicaciones.find(p => p.id === report.publicationId).empresa} className={styles['dashboard__container__list--item__body__image--photo']} />
+                      <img src={!publicaciones.find(p => p.id === report.publicationId)?.urlimagen ? 'static/img/no-img.png' : publicaciones.find(p => p.id === report.publicationId)?.urlimagen} alt={publicaciones.find(p => p.id === report.publicationId)?.empresa} className={styles['dashboard__container__list--item__body__image--photo']} />
                     </div>
                     <div className={styles['dashboard__container__list--item__body__content']}>
                       <span className={styles['report-number']}>
