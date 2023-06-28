@@ -49,7 +49,6 @@ function Report({ publicationId, isVisible, onClose }) {
         });
       });
     } else {
-      console.log('Saving publication');
       await addDoc(reportsRef, {
         publicationId,
         publicationUrl,
@@ -62,12 +61,6 @@ function Report({ publicationId, isVisible, onClose }) {
         counter: 1,
       });
     }
-    const q = query(reportsRef);
-    const datos = await getDocs(q);
-    datos.docs.map((dato) => {
-      // deleteDoc(doc(reportsRef, dato.id));
-      console.log(dato.data());
-    });
     setReason("");
     setAnonymus(false);
     onClose();
