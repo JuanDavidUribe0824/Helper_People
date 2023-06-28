@@ -52,7 +52,10 @@ const Publicacion = () => {
     useEffect(() => {
         if (id && consultarDB) {
             const obtenerPublicacion = async () => {
-                const publicacionQuery = await doc(collection(firebase.db, 'publicaciones'), id);
+                const publicacionQuery = await doc(
+                    collection(firebase.db, 'publicaciones'), 
+                    id
+                );
                 const publicacion = await getDoc(publicacionQuery);
                 //console.log(publicacion.data());  
                 if (publicacion.exists) {

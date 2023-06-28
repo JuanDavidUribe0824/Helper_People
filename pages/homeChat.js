@@ -4,7 +4,7 @@ import Error404 from '../components/layout/404';
 
 import { Home, Container } from '../components/ui/Forchat';
 import Sidebar from '../components/Mensajeria/Sidebar';
-import Chat from '../components/Mensajeria/chat';
+import Chat from '../components/Mensajeria/Chat';
 
 
 const homeChat = () => {
