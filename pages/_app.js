@@ -1,6 +1,7 @@
 import App from "next/app";
 import firebase, { FirebaseContext} from '../firebase';
 import useAutenticacion from "../hooks/useAutenticacion";
+import Header from "../components/layout/Header";
 
 
 const MyApp = props => {
