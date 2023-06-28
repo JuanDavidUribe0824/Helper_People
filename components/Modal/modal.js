@@ -1,12 +1,10 @@
 import React, { useState, useContext } from "react";
 import styles from "./modal.module.css";
-import Boton from "../ui/Boton";
 import { FirebaseContext } from "../../firebase";
 import {
   collection,
   addDoc,
   query,
-  deleteDoc,
   doc,
   getDocs,
   where,
@@ -61,12 +59,6 @@ function Report({ publicationId, isVisible, onClose }) {
         counter: 1,
       });
     }
-    const q = query(reportsRef);
-    const datos = await getDocs(q);
-    datos.docs.map((dato) => {
-      deleteDoc(doc(reportsRef, dato.id));
-      console.log(dato.data());
-    });
     setReason("");
     setAnonymus(false);
     onClose();

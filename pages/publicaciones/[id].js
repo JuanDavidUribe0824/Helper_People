@@ -12,6 +12,9 @@ import {
   doc,
   updateDoc,
   deleteDoc,
+  query,
+  where,
+  getDocs,
 } from "firebase/firestore";
 import { getStorage, ref, deleteObject } from "firebase/storage";
 import Layout from "../../components/layout/Layout.js";
@@ -181,10 +184,17 @@ const Publicacion = () => {
     if (creador.id !== usuario.uid && !usuario.isAdmin) {
       return router.push("/");
     }
+    const url = `${window.location.origin}/api/send-email?to=alejito23001@gmail.com&name=${creador.nombre}`;
+    await fetch(url);
     try {
       // Eliminar Producto
-      await deleteDoc(doc(firebase.db, "publicaciones", id));
-      // Eliminar imagen
+      const reportsRef = collection(firebase.db, "reports");
+      const reportQuery = query(reportsRef, where("publicationId", "==", id));
+      const data = await getDocs(reportQuery);
+      data.docs.map((document) => {
+        deleteDoc(doc(reportsRef, document.id));
+      });
+      await deleteDoc(doc(firebase.db, "publicaciones", id)); // Eliminar imagen
       const storage = getStorage();
       const imgRef = ref(storage, urlimagen);
       deleteObject(imgRef)
@@ -194,9 +204,10 @@ const Publicacion = () => {
         .catch((error) => {
           console.log(error);
         });
-      router.push("/");
     } catch (error) {
       console.log(error);
+    } finally {
+      router.push("/");
     }
   };
   return (
