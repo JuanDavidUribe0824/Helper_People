@@ -184,7 +184,7 @@ const Publicacion = () => {
     if (creador.id !== usuario.uid && !usuario.isAdmin) {
       return router.push("/");
     }
-    const url = `${window.location.origin}/api/send-email?to=alejito23001@gmail.com&name=${creador.nombre}`;
+    const url = `${window.location.origin}/api/send-email?to=${creador.email}&name=${creador.nombre}`;
     await fetch(url);
     try {
       // Eliminar Producto
