@@ -321,7 +321,7 @@ const Publicacion = () => {
                       </Boton>
                     )}
                     {usuario && usuario.isAdmin && (
-                      <Boton bgColor="red" onClick={() => eliminarPublicacion()}>
+                      <Boton bgColor="red" onClick={eliminarPublicacion}>
                         Eliminar Publicación
                       </Boton>
                     )}
@@ -330,7 +330,7 @@ const Publicacion = () => {
               </ContenedorPublicacion>
 
               {puedeBorrar() && (
-                <Boton onClick={eliminarPublicacion()}>
+                <Boton onClick={eliminarPublicacion}>
                   Eliminar Publicación
                 </Boton>
               )}

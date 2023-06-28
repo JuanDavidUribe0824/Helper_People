@@ -48,7 +48,7 @@ const Dashboard = () => {
                 Publicaciones
               </span>
               <span className={styles['dashboard__container__metrics--element__content--counter']}>
-                { publicaciones.length }
+                { publicaciones?.length }
               </span>
             </div>
           </div>
@@ -63,20 +63,20 @@ const Dashboard = () => {
                 <article className={styles['dashboard__container__list--item']}>
                   <div className={styles['dashboard__container__list--item__body']}>
                     <div className={styles['dashboard__container__list--item__body__image']}>
-                      <img src={publicaciones.find(p => p.id === report.publicationId).urlimagen} alt={publicaciones.find(p => p.id === report.publicationId).empresa} className={styles['dashboard__container__list--item__body__image--photo']} />
+                      <img src={!publicaciones.find(p => p.id === report.publicationId)?.urlimagen ? 'static/img/no-img.png' : publicaciones.find(p => p.id === report.publicationId)?.urlimagen} alt={publicaciones.find(p => p.id === report.publicationId).empresa} className={styles['dashboard__container__list--item__body__image--photo']} />
                     </div>
                     <div className={styles['dashboard__container__list--item__body__content']}>
                       <span className={styles['report-number']}>
                         Reporte No. {index + 1}
                       </span>
                       <h3 className={styles['publication-title']}>
-                        { publicaciones.find(p => p.id === report.publicationId).nombre }
+                        { publicaciones.find(p => p.id === report.publicationId)?.nombre }
                       </h3>
                       <h4 className={styles['publication-company']}>
-                        { publicaciones.find(p => p.id === report.publicationId).empresa }
+                        { publicaciones.find(p => p.id === report.publicationId)?.empresa }
                       </h4>
                       <p className={styles['publication-description']}>
-                        { publicaciones.find(p => p.id === report.publicationId).descripcion }
+                        { publicaciones.find(p => p.id === report.publicationId)?.descripcion }
                       </p>
                     </div>
                     <div className={styles['dashboard__container__list--item__body__counter']}>
@@ -87,10 +87,10 @@ const Dashboard = () => {
                     <div className={styles['dashboard__container__list--item__footer--more']}>
                       <i className={`bx bxs-user ${styles['dashboard__container__list--item__footer--more__icon']}`}></i>
                       <span className={styles['dashboard__container__list--item__footer--more__icon']}>
-                        { publicaciones.find(p => p.id === report.publicationId).creador.nombre }
+                        { publicaciones.find(p => p.id === report.publicationId)?.creador?.nombre }
                       </span>
                     </div>
-                    <Link href={report.publicationUrl} className={styles['dashboard__container__list--item__footer--link']}>
+                    <Link href={report?.publicationUrl} className={styles['dashboard__container__list--item__footer--link']}>
                       Ir a la publicaci&oacute;n
                     </Link>
                   </div>
