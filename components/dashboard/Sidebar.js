@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { useContext } from 'react';
+import { useRouter } from 'next/router';
 
 import { FirebaseContext } from '../../firebase';
 
 import styles from './Sidebar.module.css';
 
 const DashboardSidebar = () => {
+  const router = useRouter();
 
   const { usuario, firebase, } = useContext(FirebaseContext);
 
@@ -53,7 +55,10 @@ const DashboardSidebar = () => {
                 usuario ? (
                 <button 
                   className={styles['sidebar__wrapper__footer__profile--actions__logout']}
-                  onClick={() => firebase.cerrarSesion()}
+                  onClick={() => {
+                    firebase.cerrarSesion()
+                    router.push('/');
+                  }} 
                 >
                   Cerrar sesi&oacute;n
                 </button>
